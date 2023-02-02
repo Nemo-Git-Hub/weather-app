@@ -1,12 +1,14 @@
 # weather-app
 
+## [Deployment](https://weather-app-lemon-xi.vercel.app/)
+
 ## [versions](/docs/versions.md)
 
 ## Description
 
 - [x] `vite` react (boilerplate)
 - [x] `tailwind` (styling)
-- [] deploy to `vercel` (hosting)
+- [x] deploy to `vercel` (hosting)
 
 ## Links:
 
