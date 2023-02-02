@@ -2,7 +2,7 @@
 
 ## [Deployment](https://weather-app-lemon-xi.vercel.app/)
 
-## [versions](/docs/versions.md)
+## [versions (view)](/docs/versions.md)
 
 ## Description
 
