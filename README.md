@@ -14,6 +14,10 @@
 - [vercel](https://vercel.com/)
 - [react](https://reactjs.org/)
 
+## VSCode extensions
+
+- [tailwindcss intellisense](https://marketplace.visualstudio.com/items?itemName=bradlc.vscode-tailwindcss)
+
 ## How to run
 
 ```bash
