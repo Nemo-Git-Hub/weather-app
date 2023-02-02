@@ -1,5 +1,7 @@
 # weather-app
 
+## [versions](/docs/versions.md)
+
 ## Description
 
 - [x] `vite` react (boilerplate)
