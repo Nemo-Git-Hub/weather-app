@@ -28,7 +28,6 @@ function App() {
         .then((res) => res.json())
         .then((result) => {
           setData(result);
-          console.log(result);
         });
       currentCount;
     };
@@ -38,8 +37,10 @@ function App() {
   const currentCount = () => setCount((prevCount) => prevCount + 1);
 
   return (
-    <div className="bg-gray-900 text-gray-200">
-      {data ? <Weather data={data} /> : <div></div>}
+    <div className="bg-gray-900 h-screen flex items-center justify-center">
+      <div className="bg-gray-900 text-gray-200">
+        {data ? <Weather data={data} /> : null}
+      </div>
     </div>
   );
 }
