@@ -3,7 +3,6 @@ import { useState, useEffect } from "react";
 import Weather from "./components/Weather";
 
 function App() {
-  const [count, setCount] = useState(0);
   const [lat, setLat] = useState(null); //широта
   const [long, setLong] = useState(null); //долгота
   const [data, setData] = useState(null); //объект данных погоды
@@ -29,12 +28,9 @@ function App() {
         .then((result) => {
           setData(result);
         });
-      currentCount;
     };
     fetchData();
   }, [lat, long]);
-
-  const currentCount = () => setCount((prevCount) => prevCount + 1);
 
   return (
     <div className="bg-gray-900 h-screen flex items-center justify-center">
