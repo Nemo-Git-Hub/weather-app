@@ -17,6 +17,7 @@
 - [vite](https://vitejs.dev/guide/)
 - [vercel](https://vercel.com/)
 - [react](https://reactjs.org/)
+- [react-google-places-autocomplete](https://tintef.github.io/react-google-places-autocomplete/)
 
 ## VSCode extensions
 
