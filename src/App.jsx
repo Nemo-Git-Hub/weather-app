@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 
 import Weather from "./components/Weather";
+import Location from "./components/Location";
 
 function App() {
   const [lat, setLat] = useState(null); //широта
@@ -31,6 +32,8 @@ function App() {
     };
     fetchData();
   }, [lat, long]);
+
+  <Location data={data} />;
 
   return (
     <div className="bg-gray-900 h-screen flex items-center justify-center">
