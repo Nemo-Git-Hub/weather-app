@@ -10,7 +10,7 @@ function Weather({ data }) {
           <div className="bg-gray-600 p-2 m-2 rounded-lg text-2xl font-semibold italic">
             {currentDateTime}
           </div>
-          <Location />
+          <Location data={data} />
         </div>
         <div className="bg-gray-700 p-2 m-2 rounded-lg">
           <div className="flex justify-between">
@@ -43,9 +43,9 @@ function Weather({ data }) {
           <div className="bg-gray-600 p-2 m-2 rounded-lg uppercase">
             {data.weather[0].description}
           </div>
-          <div className="bg-gray-600 p-2 m-2 rounded-lg">
+          {/* <div className="bg-gray-600 p-2 m-2 rounded-lg">
             Ощущается: {Math.round(data.main.feels_like)} °C
-          </div>
+          </div> */}
         </div>
         {/* <div className="bg-gray-700 p-2 m-2 rounded-lg">
           <div className="bg-gray-600 p-2 m-2 rounded-lg">
@@ -55,14 +55,15 @@ function Weather({ data }) {
             Относительная влажность: {data.main.humidity}%
           </div>
         </div> */}
-        <div className="bg-gray-700 p-2 m-2 rounded-lg">
+
+        {/* <div className="bg-gray-700 p-2 m-2 rounded-lg">
           <div className="bg-gray-600 p-2 m-2 rounded-lg">
             Видимость: {data.visibility} м
           </div>
           <div className="bg-gray-600 p-2 m-2 rounded-lg">
             Скорость ветра: {data.wind.speed} м/сек
           </div>
-        </div>
+        </div> */}
       </div>
     </>
   );
