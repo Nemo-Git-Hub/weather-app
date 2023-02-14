@@ -35,7 +35,9 @@ function App() {
   return (
     <div className="bg-gray-900 h-screen flex items-center justify-center">
       <div className="bg-gray-900 text-gray-200">
-        {data ? <Weather data={data} /> : null}
+        {data ? (
+          <Weather data={data} setLat={setLat} setLong={setLong} />
+        ) : null}
       </div>
     </div>
   );

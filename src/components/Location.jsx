@@ -2,20 +2,24 @@ import { BiEditAlt } from "react-icons/bi";
 import { useState } from "react";
 import GooglePlacesSelect from "./GooglePlacesAutocomplete";
 
-function Location({ data }) {
+function Location({ data, setLat, setLong }) {
   const [isEdit, setIsEdit] = useState(false);
-  console.log(isEdit);
 
-  const toEdit = () => {
+  function toEdit() {
     setIsEdit(!isEdit);
-  };
+  }
 
   return (
     <>
       {isEdit ? (
         <div className="w-full">
           <div className="bg-gray-600 p-2 m-2 rounded-lg">
-            <GooglePlacesSelect isEdit={isEdit} />
+            <GooglePlacesSelect
+              isEdit={isEdit}
+              toEdit={toEdit}
+              setLat={setLat}
+              setLong={setLong}
+            />
           </div>
         </div>
       ) : (
@@ -28,7 +32,6 @@ function Location({ data }) {
               className="bg-gray-600 p-2 m-2 rounded-lg"
               onClick={() => {
                 toEdit();
-                // console.log(isEdit);
               }}
             >
               <BiEditAlt />
