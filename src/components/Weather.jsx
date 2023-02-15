@@ -1,7 +1,7 @@
 import { DateTime } from "luxon";
 import Location from "./Location";
 
-function Weather({ data, setLat, setLong }) {
+function Weather({ data, setLatLong }) {
   const currentDateTime = DateTime.local().toLocaleString(DateTime.DATE_HUGE);
   return (
     <>
@@ -10,7 +10,7 @@ function Weather({ data, setLat, setLong }) {
           <div className="bg-gray-600 p-2 m-2 rounded-lg text-2xl font-semibold italic">
             {currentDateTime}
           </div>
-          <Location data={data} setLat={setLat} setLong={setLong} />
+          <Location data={data} setLatLong={setLatLong} />
         </div>
         <div className="bg-gray-700 p-2 m-2 rounded-lg">
           <div className="flex justify-between">

@@ -7,10 +7,13 @@ function App() {
   const [long, setLong] = useState(null); //долгота
   const [data, setData] = useState(null); //объект данных погоды
 
+  const setLatLong = (newLat, newLong) => {
+    setLat(newLat);
+    setLong(newLong);
+  };
   useEffect(() => {
     navigator.geolocation.getCurrentPosition((position) => {
-      setLat(position.coords.latitude);
-      setLong(position.coords.longitude);
+      setLatLong(position.coords.latitude, position.coords.longitude);
     });
   }, []);
 
@@ -35,9 +38,7 @@ function App() {
   return (
     <div className="bg-gray-900 h-screen flex items-center justify-center">
       <div className="bg-gray-900 text-gray-200">
-        {data ? (
-          <Weather data={data} setLat={setLat} setLong={setLong} />
-        ) : null}
+        {data && <Weather data={data} setLatLong={setLatLong} />}
       </div>
     </div>
   );

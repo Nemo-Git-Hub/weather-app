@@ -1,17 +1,19 @@
 import { useState, useEffect } from "react";
-import GooglePlacesAutocomplete from "react-google-places-autocomplete";
-import { geocodeByAddress, getLatLng } from "react-google-places-autocomplete";
+import GooglePlacesAutocomplete, {
+  geocodeByAddress,
+  getLatLng,
+} from "react-google-places-autocomplete";
 
-const GooglePlacesSelect = ({ toEdit, setLat, setLong }) => {
-  const [value, setValue] = useState(null); // select place
+const GooglePlacesSelect = ({ toEdit, setLatLong }) => {
+  const [place, setPlace] = useState(null);
 
   useEffect(() => {
-    if (value) {
-      geocodeByAddress(value.value.description)
+    if (place) {
+      geocodeByAddress(place.value.description)
         .then((results) => getLatLng(results[0]))
-        .then(({ lat, lng }) => (setLat(lat), setLong(lng)));
+        .then(({ lat, lng }) => setLatLong(lat, lng));
     }
-  }, [value]);
+  }, [place]);
 
   return (
     <div className="flex w-full">
@@ -19,8 +21,8 @@ const GooglePlacesSelect = ({ toEdit, setLat, setLong }) => {
         <GooglePlacesAutocomplete
           apiKey={import.meta.env.VITE_GOOGLE_MAP_API_KEY}
           selectProps={{
-            value,
-            onChange: setValue,
+            value: place,
+            onChange: setPlace,
             styles: {
               input: (provided) => ({
                 ...provided,
@@ -40,9 +42,8 @@ const GooglePlacesSelect = ({ toEdit, setLat, setLong }) => {
       </div>
       <button
         className="bg-gray-600 p-1 m-1 rounded-lg"
-        onClick={() => {
-          toEdit();
-        }}
+        // onClick={toEdit(false)}
+        onClick={toEdit}
       >
         OK
       </button>
