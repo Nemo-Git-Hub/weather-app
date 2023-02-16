@@ -7,18 +7,22 @@ import GooglePlacesAutocomplete, {
 const GooglePlacesSelect = ({ toEdit, setLatLong }) => {
   const [place, setPlace] = useState(null);
 
-  const upgradePlace = (newPlace) => {
-    setPlace(newPlace);
-    console.log("newPlace: ", newPlace);
-    console.log("place: ", place);
-    // toEdit();
-  };
+  // const upgradePlace = (newPlace) => {
+  //   setPlace(newPlace);
+  //   console.log("newPlace: ", newPlace);
+  //   console.log("place: ", place);
+  //   // toEdit();
+  // };
 
   useEffect(() => {
     if (place) {
       geocodeByAddress(place.value.description)
         .then((results) => getLatLng(results[0]))
-        .then(({ lat, lng }) => setLatLong(lat, lng));
+
+        .then(({ lat, lng }) => {
+          setLatLong(lat, lng);
+          toEdit();
+        });
     }
   }, [place]);
 
@@ -29,8 +33,8 @@ const GooglePlacesSelect = ({ toEdit, setLatLong }) => {
           apiKey={import.meta.env.VITE_GOOGLE_MAP_API_KEY}
           selectProps={{
             value: place,
-            // onChange: setPlace,
-            onChange: upgradePlace,
+            onChange: setPlace,
+            // onChange: upgradePlace,
             styles: {
               input: (provided) => ({
                 ...provided,
