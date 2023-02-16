@@ -1,6 +1,7 @@
 # weather-app
 
-## [Deployment](https://weather-agxiuzgqc-nemo-git-hub.vercel.app/)
+## [Deployment_v1](https://weather-agxiuzgqc-nemo-git-hub.vercel.app/)
+## [Deployment_v2](https://weather-iyk7jm8p4-nemo-git-hub.vercel.app/)
 
 ## [versions (view)](/docs/versions.md)
 
