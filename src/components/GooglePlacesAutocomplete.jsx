@@ -7,6 +7,13 @@ import GooglePlacesAutocomplete, {
 const GooglePlacesSelect = ({ toEdit, setLatLong }) => {
   const [place, setPlace] = useState(null);
 
+  const upgradePlace = (newPlace) => {
+    setPlace(newPlace);
+    console.log("newPlace: ", newPlace);
+    console.log("place: ", place);
+    // toEdit();
+  };
+
   useEffect(() => {
     if (place) {
       geocodeByAddress(place.value.description)
@@ -22,7 +29,8 @@ const GooglePlacesSelect = ({ toEdit, setLatLong }) => {
           apiKey={import.meta.env.VITE_GOOGLE_MAP_API_KEY}
           selectProps={{
             value: place,
-            onChange: setPlace,
+            // onChange: setPlace,
+            onChange: upgradePlace,
             styles: {
               input: (provided) => ({
                 ...provided,
