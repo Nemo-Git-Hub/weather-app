@@ -25,7 +25,7 @@ function App() {
           import.meta.env.VITE_API_URL
         }/weather/?lat=${lat}&lon=${long}&units=metric&APPID=${
           import.meta.env.VITE_API_KEY
-        }&lang=ru`
+        }&lang=en`
       )
         .then((res) => res.json())
         .then((result) => {
@@ -33,6 +33,7 @@ function App() {
         });
     };
     fetchData();
+    console.log(data);
   }, [lat, long]);
 
   return (

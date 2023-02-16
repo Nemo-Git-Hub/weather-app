@@ -2,7 +2,9 @@ import { DateTime } from "luxon";
 import Location from "./Location";
 
 function Weather({ data, setLatLong }) {
-  const currentDateTime = DateTime.local().toLocaleString(DateTime.DATE_HUGE);
+  const currentDateTime = DateTime.local().toLocaleString(
+    DateTime.DATE_MED_WITH_WEEKDAY
+  );
   return (
     <>
       <div className="bg-gray-800 p-4 rounded-lg w-max  ">
@@ -15,13 +17,13 @@ function Weather({ data, setLatLong }) {
         <div className="bg-gray-700 p-2 m-2 rounded-lg">
           <div className="flex justify-between">
             <div className="bg-gray-600 p-2 m-2 rounded-lg max-w-max text-xs">
-              Восход:
+              Sunrise:
               {DateTime.fromMillis(data.sys.sunrise * 1000).toLocaleString(
                 DateTime.TIME_SIMPLE
               )}
             </div>
             <div className="bg-gray-600 p-2 m-2 rounded-lg max-w-max text-xs">
-              Закат:
+              Sunset:
               {DateTime.fromMillis(data.sys.sunset * 1000).toLocaleString(
                 DateTime.TIME_SIMPLE
               )}
@@ -44,24 +46,24 @@ function Weather({ data, setLatLong }) {
             {data.weather[0].description}
           </div>
           <div className="bg-gray-600 p-2 m-2 rounded-lg">
-            Ощущается: {Math.round(data.main.feels_like)} °C
+            Feels like: {Math.round(data.main.feels_like)} °C
           </div>
         </div>
         {/* <div className="bg-gray-700 p-2 m-2 rounded-lg">
           <div className="bg-gray-600 p-2 m-2 rounded-lg">
-            Атмосферное давление: {data.main.pressure} гПа
+            Pressure: {data.main.pressure} гПа
           </div>
           <div className="bg-gray-600 p-2 m-2 rounded-lg">
-            Относительная влажность: {data.main.humidity}%
+            Humidity: {data.main.humidity}%
           </div>
         </div> */}
 
         <div className="bg-gray-700 p-2 m-2 rounded-lg">
           {/* <div className="bg-gray-600 p-2 m-2 rounded-lg">
-            Видимость: {data.visibility} м
+            Visibility: {data.visibility} м
           </div> */}
           <div className="bg-gray-600 p-2 m-2 rounded-lg">
-            Скорость ветра: {data.wind.speed} м/сек
+            Wind speed: {data.wind.speed} м/сек
           </div>
         </div>
       </div>
