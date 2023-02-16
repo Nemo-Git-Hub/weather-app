@@ -33,7 +33,6 @@ function App() {
         });
     };
     fetchData();
-    console.log(data);
   }, [lat, long]);
 
   return (
