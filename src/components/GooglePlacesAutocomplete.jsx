@@ -4,8 +4,17 @@ import GooglePlacesAutocomplete, {
   getLatLng,
 } from "react-google-places-autocomplete";
 
-const GooglePlacesSelect = ({ toEdit, setLatLong }) => {
-  const [place, setPlace] = useState(null);
+const GooglePlacesSelect = ({ toEdit, setLatLong, setPlace, place }) => {
+  // const [place, setPlace] = useState(currentPlace);
+
+  // const currentPlace = place ?? data.name;
+  // console.log(currentPlace);
+
+  const upgradePlace = (newPlace) => {
+    setPlace(newPlace);
+    console.log(place);
+    toEdit();
+  };
 
   useEffect(() => {
     if (place) {
@@ -22,7 +31,7 @@ const GooglePlacesSelect = ({ toEdit, setLatLong }) => {
           apiKey={import.meta.env.VITE_GOOGLE_MAP_API_KEY}
           selectProps={{
             value: place,
-            onChange: setPlace,
+            onChange: upgradePlace(place),
             styles: {
               input: (provided) => ({
                 ...provided,
@@ -40,11 +49,7 @@ const GooglePlacesSelect = ({ toEdit, setLatLong }) => {
           }}
         />
       </div>
-      <button
-        className="bg-gray-600 p-1 m-1 rounded-lg"
-        // onClick={toEdit(false)}
-        onClick={toEdit}
-      >
+      <button className="bg-gray-600 p-1 m-1 rounded-lg" onClick={toEdit}>
         OK
       </button>
     </div>
