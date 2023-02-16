@@ -17,13 +17,13 @@ function Weather({ data, setLatLong }) {
         <div className="bg-gray-700 p-2 m-2 rounded-lg">
           <div className="flex justify-between">
             <div className="bg-gray-600 p-2 m-2 rounded-lg max-w-max text-xs">
-              Sunrise:
+              Sunrise: 
               {DateTime.fromMillis(data.sys.sunrise * 1000).toLocaleString(
                 DateTime.TIME_SIMPLE
               )}
             </div>
             <div className="bg-gray-600 p-2 m-2 rounded-lg max-w-max text-xs">
-              Sunset:
+              Sunset: 
               {DateTime.fromMillis(data.sys.sunset * 1000).toLocaleString(
                 DateTime.TIME_SIMPLE
               )}
