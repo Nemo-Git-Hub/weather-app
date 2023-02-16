@@ -48,11 +48,7 @@ const GooglePlacesSelect = ({ toEdit, setLatLong }) => {
           }}
         />
       </div>
-      <button
-        className="bg-gray-600 p-1 m-1 rounded-lg"
-        // onClick={toEdit(false)}
-        onClick={toEdit}
-      >
+      <button className="bg-gray-600 p-1 m-1 rounded-lg" onClick={toEdit}>
         OK
       </button>
     </div>
