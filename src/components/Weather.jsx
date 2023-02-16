@@ -43,9 +43,9 @@ function Weather({ data, setLatLong }) {
           <div className="bg-gray-600 p-2 m-2 rounded-lg uppercase">
             {data.weather[0].description}
           </div>
-          {/* <div className="bg-gray-600 p-2 m-2 rounded-lg">
+          <div className="bg-gray-600 p-2 m-2 rounded-lg">
             Ощущается: {Math.round(data.main.feels_like)} °C
-          </div> */}
+          </div>
         </div>
         {/* <div className="bg-gray-700 p-2 m-2 rounded-lg">
           <div className="bg-gray-600 p-2 m-2 rounded-lg">
@@ -56,14 +56,14 @@ function Weather({ data, setLatLong }) {
           </div>
         </div> */}
 
-        {/* <div className="bg-gray-700 p-2 m-2 rounded-lg">
-          <div className="bg-gray-600 p-2 m-2 rounded-lg">
+        <div className="bg-gray-700 p-2 m-2 rounded-lg">
+          {/* <div className="bg-gray-600 p-2 m-2 rounded-lg">
             Видимость: {data.visibility} м
-          </div>
+          </div> */}
           <div className="bg-gray-600 p-2 m-2 rounded-lg">
             Скорость ветра: {data.wind.speed} м/сек
           </div>
-        </div> */}
+        </div>
       </div>
     </>
   );

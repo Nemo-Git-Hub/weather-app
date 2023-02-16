@@ -4,38 +4,32 @@ import GooglePlacesSelect from "./GooglePlacesAutocomplete";
 
 function Location({ data, setLatLong }) {
   const [isEdit, setIsEdit] = useState(false);
-  // const [place, setPlace] = useState(currentPlace);
 
-  const toEdit = () => {
+  const toggleIsEdit = () => {
     setIsEdit((prevIsEdit) => !prevIsEdit);
   };
 
-  // const currentPlace = place ?? data.name;
+  const toEditLatLong = (lat, long) => {
+    setLatLong(lat, long);
+    toggleIsEdit();
+  };
 
   return (
     <>
       {isEdit ? (
-        <div className="w-full">
-          <div className="bg-gray-600 p-2 m-2 rounded-lg">
-            <GooglePlacesSelect
-              toEdit={toEdit}
-              setLatLong={setLatLong}
-              // data={data}
-              // setPlace={setPlace}
-            />
-          </div>
-        </div>
+        <GooglePlacesSelect toEditLatLong={toEditLatLong} />
       ) : (
-        <>
-          <div className="flex justify-between">
-            <div className="bg-gray-600 p-2 m-2 rounded-lg flex-grow">
-              {data.name}
-            </div>
-            <button className="bg-gray-600 p-2 m-2 rounded-lg" onClick={toEdit}>
-              <BiEditAlt />
-            </button>
+        <div className="flex justify-between">
+          <div className="bg-gray-600 p-2 m-2 rounded-lg flex-grow">
+            {data.name}
           </div>
-        </>
+          <button
+            className="bg-gray-600 p-2 m-2 rounded-lg"
+            onClick={toggleIsEdit}
+          >
+            <BiEditAlt />
+          </button>
+        </div>
       )}
     </>
   );
